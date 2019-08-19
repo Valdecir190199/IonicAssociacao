@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'curso-listar', loadChildren: './curso/curso-listar/curso-listar.module#CursoListarPageModule' },
   { path: 'salvar-materia', loadChildren: './materia/salvar-materia/salvar-materia.module#SalvarMateriaPageModule' },
   { path: 'listar-materia', loadChildren: './materia/listar-materia/listar-materia.module#ListarMateriaPageModule' },
+  { path: 'salvar-registro', loadChildren: './registro/salvar-registro/salvar-registro.module#SalvarRegistroPageModule' },
+  { path: 'listar-registro', loadChildren: './registro/listar-registro/listar-registro.module#ListarRegistroPageModule' },
 
 ];
 

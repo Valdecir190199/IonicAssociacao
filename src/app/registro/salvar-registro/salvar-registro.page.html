@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>salvar-registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+    <ion-label position="floating">Data</ion-label>
+    <ion-input name="nome" [(ngModel)]="registro.data"></ion-input>
+    <ion-label position="floating">Conceito</ion-label>
+    <ion-input name="nome" [(ngModel)]="registro.conceito"></ion-input>
+    <ion-label position="floating">Conteudo</ion-label>
+    <ion-input name="nome" [(ngModel)]="registro.conteudo"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Materia</ion-label>
+    <ion-select [(ngModel)]="registro.materia">
+    <ion-select-option *ngFor='let materia of listaMateria | async' [value]="materia" >
+    {{materia.nome}}
+    {{materia.curso.ano}}
+    
+    </ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-button expand="full" shape="round" (click)="salvar()">salvar</ion-button>
+    </ion-content>
+    <ion-button href = "listar-materia">Voltar</ion-button>
+    <ion-button href = "listar-registro">Listar</ion-button>

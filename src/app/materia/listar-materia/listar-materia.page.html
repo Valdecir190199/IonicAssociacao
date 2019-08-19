@@ -10,11 +10,15 @@
         <ion-label>{{ materia.nome }}</ion-label>
         <ion-label>{{ materia.curso.nome }}</ion-label>
         <ion-label>{{ materia.curso.ano }}</ion-label>
+        <ion-button *ngIf="(user_id | async) == materia.user_id" expand="full" shape="round" color="danger" (click)="excluir(materia.key, materia)">Excluir</ion-button>
       </ion-item>
     </ion-list>
   
-    <ion-button href = "salvar">Salvar</ion-button>
-    <ion-button href = "pagina">Voltar</ion-button>
-  
   </ion-content>
+
+  <ion-button href = "curso-listar">Voltar</ion-button>
+  <ion-button href = "salvar-materia">Adicionar Materia</ion-button>
+
+
+  
   

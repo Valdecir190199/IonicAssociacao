@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listar-registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let registro of listaRegistro | async">
+        <ion-label>{{ registro.data }}</ion-label>
+        <ion-label>{{ registro.conteudo }} </ion-label>
+        <ion-label>{{ registro.conceito }} </ion-label>
+        <ion-label>{{ registro.materia.nome }} </ion-label>
+        
+      </ion-item>
+    </ion-list>
+    <ion-button href = "salvar-registro"> Salvar </ion-button>
+  </ion-content>
+  
