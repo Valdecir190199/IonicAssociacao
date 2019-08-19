@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>salvar-curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-content>
+      <label>Nome</label>
+        <ion-input type="text" name="nome" [(ngModel)]="curso.nome"></ion-input>
+        <label>Ano</label>
+        <ion-input type="number" name="ano" [(ngModel)]="curso.ano"></ion-input>
+        <ion-button (click)="salvar()">salvar</ion-button>
+</ion-content>

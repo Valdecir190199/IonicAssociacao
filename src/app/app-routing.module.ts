@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: 'listar', loadChildren: './estado/listar/listar.module#ListarPageModule' },
   { path: 'cidade-salvar', loadChildren: './cidade/salvar/salvar.module#SalvarPageModule' },
   { path: 'cidade-listar', loadChildren: './cidade/listar/listar.module#ListarPageModule' },
+  { path: 'pagina', loadChildren: './pagina/pagina.module#PaginaPageModule' },
+  { path: 'salvar-curso', loadChildren: './curso/salvar-curso/salvar-curso.module#SalvarCursoPageModule' },
+  { path: 'curso-listar', loadChildren: './curso/curso-listar/curso-listar.module#CursoListarPageModule' },
 
 ];
 
