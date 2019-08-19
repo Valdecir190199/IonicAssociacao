@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+import { Materia } from '../entidade/materia';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-listar-materia',
+  templateUrl: './listar-materia.page.html',
+  styleUrls: ['./listar-materia.page.scss'],
+})
+export class ListarMateriaPage implements OnInit {
+  listaMateria: Observable<Materia[]>;
+
+  constructor(private fire: AngularFireDatabase) {
+    this.listaMateria = this.fire.list<Materia>('materia').snapshotChanges().pipe(
+      map( lista => lista.map(linha => ({ key: linha.payload.key, ... linha.payload.val() })))
+    );
+  }
+ 
+
+  ngOnInit() {
+  }
+
+}

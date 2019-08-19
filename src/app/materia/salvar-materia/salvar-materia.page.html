@@ -1,0 +1,16 @@
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Materia</ion-label>
+    <ion-input name="nome" [(ngModel)]="materia.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Curso</ion-label>
+    <ion-select [(ngModel)]="materia.curso">
+      <ion-select-option *ngFor='let curso of listaCurso | async' [value]="curso">
+        {{curso.nome}}
+        {{curso.ano}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="full" shape="round" (click)="salvar()">salvar</ion-button>
+</ion-content>

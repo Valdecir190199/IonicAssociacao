@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Materias</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let materia of listaMateria | async">
+        <ion-label>{{ materia.nome }}</ion-label>
+        <ion-label>{{ materia.curso.nome }}</ion-label>
+        <ion-label>{{ materia.curso.ano }}</ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <ion-button href = "salvar">Salvar</ion-button>
+    <ion-button href = "pagina">Voltar</ion-button>
+  
+  </ion-content>
+  
