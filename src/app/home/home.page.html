@@ -9,9 +9,25 @@
 
 <ion-content>
     <label>Email</label>
-    <ion-input type="text" name="nome" [(ngModel)]="usuario.email"></ion-input>
+    <ion-input style="   border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow: 1px 1px 2px #333333;    
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc; 
+    border:1px solid #000000;
+    width:100%"  type="text" name="nome" [(ngModel)]="usuario.email"></ion-input>
     <label>Senha</label>
-    <ion-input type="password" name="telefone" [(ngModel)]="usuario.senha"></ion-input>
+    <ion-input style="border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow: 1px 1px 2px #333333;    
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc; 
+    border:1px solid #000000;
+    width:100%"  type="password" name="telefone" [(ngModel)]="usuario.senha"></ion-input>
     <ion-button  expand="full" shape="round" (click)="logar()">Acessar</ion-button>
     <ion-button expand="full" shape="round" color="medium" fill="outline" (click)="redefinePwd()">Redefinir senha
     </ion-button>
