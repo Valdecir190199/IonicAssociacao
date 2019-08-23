@@ -22,6 +22,11 @@ export class CursoListarPage implements OnInit {
     );
    }
 
+  excluir(key: string, curso: Curso) {
+    this.fire.object('curso/' + key).remove();
+    this.fire.object('message/' + key).remove();
+  }
+
   ngOnInit() {
   }
 

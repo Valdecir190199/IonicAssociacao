@@ -4,17 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor="let registro of listaRegistro | async">
   
-  <ion-content>
-    <ion-list>
-      <ion-item *ngFor="let registro of listaRegistro | async">
-        <ion-label>{{ registro.data }}</ion-label>
-        <ion-label>{{ registro.conteudo }} </ion-label>
-        <ion-label>{{ registro.conceito }} </ion-label>
-        <ion-label>{{ registro.materia.nome }} </ion-label>
-        
-      </ion-item>
-    </ion-list>
-    <ion-button href = "salvar-registro"> Salvar </ion-button>
-  </ion-content>
-  
+
+      <ion-label> 
+        {{ registro.data }} -
+     {{ registro.conteudo }} 
+    {{ registro.conceito }} </ion-label>
+    <ion-label>
+<ion-button *ngIf="(user_id | async) == registro.user_id" expand="full" shape="round" color="danger"
+  (click)="excluir(registro.key, curso)">Excluir</ion-button>
+     </ion-label>
+
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" shape="round" href="salvar-registro">Novo</ion-button>
+  <ion-button expand="full" shape="round" href="pagina">Voltar</ion-button>
+</ion-content>

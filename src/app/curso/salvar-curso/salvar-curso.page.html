@@ -3,14 +3,14 @@
     <ion-title>salvar-curso</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
     <ion-content>
       <label>Nome</label>
         <ion-input type="text" name="nome" [(ngModel)]="curso.nome"></ion-input>
         <label>Ano</label>
         <ion-input type="number" name="ano" [(ngModel)]="curso.ano"></ion-input>
-        <ion-button (click)="salvar()">Salvar</ion-button>
-        <ion-button href = "salvar-registro">Salvar registro</ion-button>
-        
+        <ion-button expand = "full" shape = "round" (click)="salvar()">Salvar novo Curso</ion-button>
+        <ion-button style="margin-top: 150x" expand="full" shape="round" href="curso-listar"> Cursos </ion-button>
+        <ion-button expand="full" shape="round" href="pagina">Voltar</ion-button>
 </ion-content>
+

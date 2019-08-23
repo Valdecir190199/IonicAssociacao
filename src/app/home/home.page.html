@@ -12,6 +12,8 @@
     <ion-input type="text" name="nome" [(ngModel)]="usuario.email"></ion-input>
     <label>Senha</label>
     <ion-input type="password" name="telefone" [(ngModel)]="usuario.senha"></ion-input>
-    <ion-button (click)="logar()">Acessar</ion-button>
+    <ion-button  expand="full" shape="round" (click)="logar()">Acessar</ion-button>
+    <ion-button expand="full" shape="round" color="medium" fill="outline" (click)="redefinePwd()">Redefinir senha
+    </ion-button>
   </ion-content>
   

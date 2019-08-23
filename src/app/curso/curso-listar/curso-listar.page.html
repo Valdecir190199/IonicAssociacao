@@ -8,11 +8,12 @@
     <ion-item *ngFor="let curso of listaCursos | async">
       <ion-label>{{ curso.nome }}</ion-label>
       <ion-label>{{ curso.ano }}</ion-label>
+      <ion-button *ngIf="(user_id | async) == curso.user_id" expand="full" shape="round" color="danger"
+        (click)="excluir(curso.key, curso)">Excluir</ion-button>
     </ion-item>
-  </ion-list>
-  <ion-button href = "salvar-registro">Salvar registro</ion-button>
-        
-  <ion-button href = "salvar-curso"> Adicionar </ion-button>
-  <ion-button href = "home"> Sair </ion-button>
-  
+  </ion-list> 
+  <ion-button expand="full" shape="round" href = "salvar-curso">  Novo </ion-button>
+  <ion-button expand="full" shape="round" href="pagina">Voltar</ion-button>
+
 </ion-content>
+

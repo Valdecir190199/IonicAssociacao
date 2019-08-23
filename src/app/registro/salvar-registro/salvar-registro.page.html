@@ -7,7 +7,7 @@
 <ion-content>
     <ion-item>
     <ion-label position="floating">Data</ion-label>
-    <ion-input name="nome" [(ngModel)]="registro.data"></ion-input>
+    <ion-datetime displayFormat="MMM DD,YYYY" [(ngModel)]="registro.data"></ion-datetime>
     <ion-label position="floating">Conceito</ion-label>
     <ion-input name="nome" [(ngModel)]="registro.conceito"></ion-input>
     <ion-label position="floating">Conteudo</ion-label>
@@ -17,8 +17,7 @@
     <ion-label position="floating">Materia</ion-label>
     <ion-select [(ngModel)]="registro.materia">
     <ion-select-option *ngFor='let materia of listaMateria | async' [value]="materia" >
-    {{materia.nome}}
-    {{materia.curso.ano}}
+    {{materia.nome }} 
     
     </ion-select-option>
     </ion-select>

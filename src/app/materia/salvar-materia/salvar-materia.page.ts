@@ -27,7 +27,7 @@ export class SalvarMateriaPage implements OnInit {
   salvar(){
     this.fire.list('materia').push(this.materia);
     this.materia = new Materia();
-    this.rota.navigate(['salvar-registro']);
+    this.rota.navigate(['pagina']);
   }
 
   ngOnInit() {

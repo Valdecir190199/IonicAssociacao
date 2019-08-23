@@ -23,5 +23,8 @@ export class ListarRegistroPage implements OnInit {
       map( lista => lista.map(linha => ({ key: linha.payload.key, ... linha.payload.val() })))
     );
   }
-
+  excluir(key: string, registro: Registro) {
+    this.fire.object('registro/' + key).remove();
+    this.fire.object('message/' + key).remove();
+  }
 }
