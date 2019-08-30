@@ -14,10 +14,12 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class CursoListarPage implements OnInit {
 
-  listaCursos: Observable<Curso[]>;
+  listaCursos$: Observable<Curso[]>;
+
+  buscarCurso: string;
 
   constructor(private fire:AngularFireDatabase) {
-    this.listaCursos = this.fire.list<Curso>('curso').snapshotChanges().pipe(
+    this.listaCursos$ = this.fire.list<Curso>('curso').snapshotChanges().pipe(
       map (lista => lista.map (linha=> ({key:linha.payload.key,...linha.payload.val()})))
     );
    }
@@ -28,6 +30,21 @@ export class CursoListarPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  buscar(){ 
+    
+    if(this.buscarCurso != null){
+      this.listaCursos$ = this.fire.list<Curso>('curso', ref => ref.orderByChild("nome").equalTo(this.buscarCurso)).snapshotChanges().pipe(
+        map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+      );
+    }else{
+      this.listaCursos$ = this.fire.list<Curso>('curso').snapshotChanges().pipe(
+        map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+      );
+    }
+    
+    
   }
 
 }
