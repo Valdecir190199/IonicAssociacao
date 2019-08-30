@@ -39,9 +39,11 @@ export class CursoListarPage implements OnInit {
         map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
       );
     }else{
-      this.listaCursos$ = this.fire.list<Curso>('curso').snapshotChanges().pipe(
+
+      this.listaCursos$ = this.fire.list<Curso>('curso',ref => ref.orderByChild("nome").equalTo("TADS")).snapshotChanges().pipe(
         map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
       );
+      
     }
     
     

@@ -7,7 +7,10 @@
 
 <ion-content>
   <ion-list>
-
+  <ion-item>
+    <ion-input [(ngModel)]="buscarCurso"></ion-input>
+    <ion-button expand="full" shape="round" color="success" (click)="buscar()">busca</ion-button>
+  </ion-item>
     <ion-item *ngFor="let registro of listaRegistro | async">
   
 
@@ -15,10 +18,10 @@
         {{ registro.data }} -
      {{ registro.conteudo }} 
     {{ registro.conceito }} </ion-label>
-    <ion-label>
-<ion-button *ngIf="(user_id | async) == registro.user_id" expand="full" shape="round" color="danger"
+
+<ion-button *ngIf="(user_id | async) == registro.user_id"  shape="round" color="danger"
   (click)="excluir(registro.key, curso)">Excluir</ion-button>
-     </ion-label>
+    
 
     </ion-item>
   </ion-list>

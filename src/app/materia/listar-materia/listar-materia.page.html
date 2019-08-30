@@ -6,26 +6,17 @@
   
   <ion-content>
     <ion-list>
+          <ion-item>         
+            <ion-input [(ngModel)]="buscarCurso"></ion-input>
+            <ion-button color="success" (click)="buscar()">busca</ion-button>
+          </ion-item>
       <ion-item *ngFor="let materia of listaMateria | async">
-        <ion-label>{{ materia.nome }}</ion-label>
-        <ion-label>{{ materia.curso.nome }}</ion-label>
-        <ion-label>{{ materia.curso.ano }}</ion-label>
+        <ion-label>{{ materia.nome }}
+       {{ materia.curso.nome }}
+       {{ materia.curso.ano }}</ion-label>
         <ion-button *ngIf="(user_id | async) == materia.user_id" expand="full" shape="round" color="danger" (click)="excluir(materia.key, materia)">Excluir</ion-button>
       </ion-item>
-          <ion-item>
-          
-          
-            <ion-input style="   border-radius:4px;
-              -moz-border-radius:4px;
-              -webkit-border-radius:4px;
-              box-shadow: 1px 1px 2px #333333;    
-              -moz-box-shadow: 1px 1px 2px #333333;
-              -webkit-box-shadow: 1px 1px 2px #333333;
-              background: #cccccc; 
-              border:1px solid #000000;
-              width:100%" [(ngModel)]="busca"></ion-input>
-            <ion-button expand="full" shape="round" color="danger" (click)="buscar()">busca</ion-button>
-          </ion-item>
+     
     </ion-list>
   
   </ion-content>

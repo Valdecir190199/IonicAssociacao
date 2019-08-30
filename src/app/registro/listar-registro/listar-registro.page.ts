@@ -27,4 +27,24 @@ export class ListarRegistroPage implements OnInit {
     this.fire.object('registro/' + key).remove();
     this.fire.object('message/' + key).remove();
   }
+
+  buscarCurso:string;
+
+  buscar() {
+
+    if (this.buscarCurso != null) {
+      this.listaRegistro = this.fire.list<Registro>('registro', ref => ref.orderByChild("conteudo").equalTo(this.buscarCurso)).snapshotChanges().pipe(
+        map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+      );
+    } else if (this.buscarCurso == null) {
+
+      this.listaRegistro = this.fire.list<Registro>('registro').snapshotChanges().pipe(
+        map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+      );
+
+    }
+
+
+  }
+
 }

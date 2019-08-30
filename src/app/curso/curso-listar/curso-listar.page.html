@@ -5,6 +5,10 @@
 </ion-header>
 <ion-content>
   <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="buscarCurso"></ion-input>
+      <ion-button expand="full" shape="round" color="success" (click)="buscar()">busca</ion-button>
+    </ion-item>
     <ion-item *ngFor="let curso of listaCursos$ | async">
       <ion-label>{{ curso.nome }}</ion-label>
       <ion-label>{{ curso.ano }}</ion-label>
@@ -12,10 +16,7 @@
         (click)="excluir(curso.key, curso)">Excluir</ion-button>
 
     </ion-item>
-  <ion-item>
-    <ion-input [(ngModel)]="buscarCurso"></ion-input>
-    <ion-button expand="full" shape="round" color="danger" (click)="buscar()">busca</ion-button>
-  </ion-item>
+ 
   </ion-list>
   
   <ion-button expand="full" shape="round" href="salvar-curso"> Novo </ion-button>

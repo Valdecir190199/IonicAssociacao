@@ -21,21 +21,24 @@ export class ListarMateriaPage implements OnInit {
     this.fire.object('materia/'+key).remove();
     this.fire.object('message/'+key).remove();
 }
-busca:string;
+  buscarCurso:string;
 
   ngOnInit() {
   }
 
+
   buscar() {
 
-    if (this.busca != null) {
-      this.listaMateria = this.fire.list<Materia>('materia', ref => ref.equalTo(this.busca)).snapshotChanges().pipe(
+    if (this.buscarCurso != null) {
+      this.listaMateria = this.fire.list<Materia>('materia', ref => ref.orderByChild("nome").equalTo(this.buscarCurso)).snapshotChanges().pipe(
         map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
       );
-    } else {
+    } else if (this.buscarCurso == null){
+
       this.listaMateria = this.fire.list<Materia>('materia').snapshotChanges().pipe(
         map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
       );
+
     }
 
 
